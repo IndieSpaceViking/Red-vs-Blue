@@ -53,37 +53,49 @@ Encrypt data file that are confidential.
 
 
 
+
+
 <details>
 <summary> 3. Identify the Brute Force Attack </b> </summary>
 After identifying the hidden directory, Hydra was used to brute-force the target server.
 
 Packets from Hydra was identified using the following search functions on the Discovery page of Kibana:
 
-search: url.path: /company_folders/secret_folder/ and look through results and notice Hydra is identified under user_agent.original as shown in the image below:
+- search: `url.path: /company_folders/secret_folder/` and look through results and notice `Hydra` is identified under `user_agent.original` as shown in the image below:
 
+![image](https://github.com/user-attachments/assets/edcbf1a1-86d0-4c93-bca9-64322020588a)
 
-search: source.ip: 192.168.1.90 AND destination.ip:192.168.1.105 AND http.response.status_code:401 AND url.path:/company_folders/secret_folder AND user_agent.original:"Mozilla/4.0 (Hydra)"
+- search: `source.ip: 192.168.1.90 AND destination.ip:192.168.1.105 AND http.response.status_code:401 AND url.path:/company_folders/secret_folder AND user_agent.original:"Mozilla/4.0 (Hydra)"`
 
+![image](https://github.com/user-attachments/assets/2ec4b961-0044-4384-99fe-ea6722395b06)
 
-There were 16,205 requests made in the attack. Within the 16,205 requests, 2 requests was made before discovering the password as shown illustrated in HTTP Transactions [PacketBeat] ECS panel.
-The HTTP status codes for the top queries [PacketBeat] ECS panel shows the breakdown of 401 unauthorized status codes as opposed to 200 OK status codes.
+- There were 16,205 requests made in the attack. Within the 16,205 requests, 2 requests was made before discovering the password as shown illustrated in HTTP Transactions [PacketBeat] ECS panel.
+- The HTTP status codes for the top queries [PacketBeat] ECS panel shows the breakdown of 401 unauthorized status codes as opposed to 200 OK status codes.
 
+![image](https://github.com/user-attachments/assets/6dad7eca-5954-425b-903d-79fd35009656)
 
-The Connections over time [Packetbeat Flows] ECS panel shows a connection spike.
+- The Connections over time [Packetbeat Flows] ECS panel shows a connection spike.
 
+![image](https://github.com/user-attachments/assets/97686003-c43e-4509-993f-58c27ab08d68)
 
 Mitigation:
-What kind of alarm would you set to detect this behavior in the future and at what threshold(s)?
 
-Set an alert if 401 unauthorized status code is returned back from any server.
-Set threshold of 10 login attempts per hour and refine from there.
-Set alert if user_agent.original value includes Hydra in the name.
-Identify at least one way to harden the vulnerable machine that would mitigate this attack.
+<blockquote>
+  <strong>What kind of alarm would you set to detect this behavior in the future and at what threshold(s)?</strong><br>
+</blockquote>
 
-Create a password policy for the company - an assigned unique user account and password requirements such as new passwords to be created and will expire every 90 days and must be changed.
-Accounts shall be locked after six failed login attempts within 30 minutes and shall remain locked for at least 30 minutes or until the System Administrator unlocks the account.
-Apply the NIST 800-63B framework for password requirements. Limit failed login attempts and logins to specific IP address or range.
-Strong protected passwords using Captcha and Two-Factor Authentication.  
+- Set an alert if 401 unauthorized status code is returned back from any server.
+- Set threshold of 10 login attempts per hour and refine from there.
+- Set alert if user_agent.original value includes Hydra in the name.
+
+<blockquote>
+  <strong>Identify at least one way to harden the vulnerable machine that would mitigate this attack.</strong><br>
+</blockquote>
+
+- Create a password policy for the company - an assigned unique user account and password requirements such as new passwords to be created and will expire every 90 days and must be changed.
+- Accounts shall be locked after six failed login attempts within 30 minutes and shall remain locked for at least 30 minutes or until the System Administrator unlocks the account.
+- Apply the NIST 800-63B framework for password requirements. Limit failed login attempts and logins to specific IP address or range.
+- Strong protected passwords using Captcha and Two-Factor Authentication.  
 </details>	
 
 
