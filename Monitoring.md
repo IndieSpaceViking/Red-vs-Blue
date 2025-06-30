@@ -1,12 +1,9 @@
-# Offensive: Summary of Operations
+## Monitoring Setup
 
-## Table of Contentsf
-- Exposed Services
-- Critical Vulnerabilities
-- Exploitation
+I will be installing FileBeat, MetricBeat and PacketBeat onto our Capstone VM, so we can collect the logs as the attack is taking place in our server.
 
-### Exposed Services
+# Configuration
 
-Nmap scan results for each machine reveal the below services and OS details:
+Run the following commands:
 
 Command: `$ nmap -sV 192.168.1.110` or `$ nmap -A 192.168.1.0/24`
