@@ -15,7 +15,7 @@ Read through the Offensive, Defense, and Network Analysis files to see the work,
 
 - [Monitoring](https://github.com/IndieSpaceViking/Red-vs-Blue/blob/main/Monitoring.md): 
   
-- [Offensive - RED](https://github.com/IndieSpaceViking/Red-vs-Blue/blob/main/Red - Security Assessment.md):
+- [Offensive - RED](https://github.com/IndieSpaceViking/Red-vs-Blue/blob/main/Red%20-%20Security%20Assessment.md):
 
 - [Defense - BLUE](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/Defensive.md): 
 
