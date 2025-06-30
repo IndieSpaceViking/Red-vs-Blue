@@ -5,51 +5,51 @@ We will be investigating the incident using Kibana to analyze the logs that took
 <details>
 <summary> Click here to view on how to add Kibana Log Data and Creating a Dashboard for Visualization </b> </summary>
 
-Adding Kibana Log Data
+### Adding Kibana Log Data
 To start viewing logs in Kibana, we will need to import our filebeat, metricbeat and packetbeat data.
 
 Double-click the Google Chrome icon on the Windows host's desktop to launch Kibana. If it doesn't load as the default page, navigate to http://192.168.1.105:5601.
 
 This will open 4 tabs automatically, but for now, we only want to use the first tab.
 
-Click on the Explore My Own link to get started.
+Click on the `Explore My Own` link to get started.
 
-Adding Appache logs
-Click on Add Log Data
-Click on Apache logs
-Scroll to the bottom of the page.
-Click on Check Data You should see a message highlighted in green: Data successfully received from this module
+### Adding Appache logs
+- Click on `Add Log Data`
+- Click on `Apache logs`
+- Scroll to the bottom of the page.
+- Click on `Check Data` You should see a message highlighted in green: `Data successfully received from this module`
 
 ![image](https://github.com/user-attachments/assets/9ecff899-23ba-444c-9d96-8ab002fbace1)
 
 
 Return to the Home screen by moving back 2 pages.
 
-Adding System Logs
-Click on Add Log Data
-Click on System logs
-Scroll to the bottom of the page.
-Click on Check Data You should see a message highlighted in green: Data successfully received from this module
+### Adding System Logs
+- Click on `Add Log Data`
+- Click on `System logs`
+- Scroll to the bottom of the page.
+- Click on `Check Data` You should see a message highlighted in green: `Data successfully received from this module`
 
-![image](https://github.com/user-attachments/assets/65fa3391-041d-47a5-a106-2975541c4648)
+![image](https://github.com/user-attachments/assets/cee99ab3-4dc8-436d-8efb-eca06299b3c8)
 
 Return to the Home screen by moving back 2 pages.
 
-Adding Apache Metrics
-Click on Add Metric Data
-Click on Apache Metrics
-Scroll to the bottom of the page.
-Click on Check Data You should see a message highlighted in green: Data successfully received from this module
+### Adding Apache Metrics
+- Click on `Add Metric Data`
+- Click on `Apache Metrics`
+- Scroll to the bottom of the page.
+- Click on `Check Data` You should see a message highlighted in green: `Data successfully received from this module`
 
 ![image](https://github.com/user-attachments/assets/e284ed49-8d26-4830-9b00-5bdd63c2edf1)
 
 Return to the Home screen by moving back 2 pages.
 
-Adding System Metrics
-Click on Add Metric Data
-Click on System Metrics
-Scroll to the bottom of the page.
-Click on Check Data You should see a message highlighted in green: Data successfully received from this module
+### Adding System Metrics
+- Click on `Add Metric Data`
+- Click on `System Metrics`
+- Scroll to the bottom of the page.
+- Click on `Check Data` You should see a message highlighted in green: `Data successfully received from this module`
 
 ![image](https://github.com/user-attachments/assets/57768440-f2bb-4348-87ef-934898107c94)
 
@@ -58,19 +58,20 @@ Close Google Chrome and all of it's tabs. Double click on Chrome to re-open it.
 ### Dashboard Creation
 We will create visualization of our data to write for report.
 
-Click on Dashboards on the left navigation panel.
-Click on Create Dashboard in right upper hand side.
+- Click on Dashboards on the left navigation panel.
+- Click on Create Dashboard in right upper hand side.
 On the new page click on Add an existing to add the following existing reports:
 
-HTTP status codes for the top queries [Packetbeat] ECS
-Top 10 HTTP requests [Packetbeat] ECS
-Network Traffic Between Hosts [Packetbeat Flows] ECS
-Top Hosts Creating Traffic [Packetbeat Flows] ECS
-Connections over time [Packetbeat Flows] ECS
-HTTP error codes [Packetbeat] ECS
-Errors vs successful transactions [Packetbeat] ECS
-HTTP Transactions [Packetbeat] ECS
+- `HTTP status codes for the top queries [Packetbeat] ECS`
+- `Top 10 HTTP requests [Packetbeat] ECS`
+- `Network Traffic Between Hosts [Packetbeat Flows] ECS`
+- `Top Hosts Creating Traffic [Packetbeat Flows] ECS`
+- `Connections over time [Packetbeat Flows] ECS`
+- `HTTP error codes [Packetbeat] ECS`
+- `Errors vs successful transactions [Packetbeat] ECS`
+- `HTTP Transactions [Packetbeat] ECS`
 After adding the dashboard it should look like below images:
+
 ![image](https://github.com/user-attachments/assets/6e003aef-4fd6-4660-867d-68d3acd775b1)
 
 ![image](https://github.com/user-attachments/assets/b61e26a3-a830-4a2f-b84a-9dbd9eebb609)
