@@ -1,1 +1,36 @@
+Mitigation steps are provided below.
+Blocking the Port Scan
 
+The local firewall can be used to throttle incoming connections
+ICMP traffic can be filtered
+An IP allowed list can be enabled
+Regularly run port scans to detect and audit any open ports
+High Volume of Traffic from Single Endpoint
+
+Rate-limiting traffic from a specific IP address would reduce the web server's susceptibility to DoS conditions, as well as provide a hook against which to trigger alerts against suspiciously suspiciously fast series of requests that may be indicative of scanning.
+Access to sensitive data in the secret_folder directory
+
+The secret_folder directory should be protected with stronger authentication.
+Data inside of secret_folder should be encrypted at rest.
+Filebeat should be configured to monitor access to the secret_folder directory and its contents.
+Access to secret_folder should be whitelisted, and access from IPs not on this whitelist, logged.
+Brute-force attack against the HTTP server
+
+The fail2ban utility can be enabled to protect against brute force attacks.
+Create a policy that locks out accounts after 10 failed attempts
+Create a policy that increases password complexity (requirements)
+Enable MFA
+Identifying reverse shell uploads
+
+Write permissions can be restricted on the host.
+Uploads can be isolated into a dedicated storage partition.
+Filebeat should be enabled and configured.
+Assessment Summary
+Red Team	Blue Team
+Accessed the system via HTTP Port 80 CVE-2019-6579	Confirmed that a port scan occurred
+Found Root accessibility	Found requests for a hidden directory
+Found the occurrence of simplistic usernames and weak passwords	Found evidence of a brute force attack
+Brute forced passwords to gain system access CVE-2019-3746	Found requests to access critical system folders and files
+Cracked a hashed password to gain system access and use a shell script	Identified a WebDAV vulnerability
+Identified Directory Indexing Vulnerability CWE-548	Recommended alarms
+Recommended system hardening
