@@ -23,5 +23,3 @@ Read through the Offensive, Defense, and Network Analysis files to see the work,
 
 
 #### View the Google slide of full findings [Here](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/files/9066131/CyberSec.Pro.Final.Presentation.pdf)
-
-##### Note: The presentation was created by a group represented as a Resurrected team. All documentation for offensive, defensive and network analysis are my own personal work. We were assigned to be a team to come together and bring our findings to light.
