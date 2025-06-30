@@ -3,8 +3,8 @@
 The following commands are executed from the attacker's machine running Kali Linux, which is already part of the internal network. Because the target is an internal Capstone VM and not an external site, there's no need to perform OSINT or Recon-NG in this scenario. The engagement involves discovering the server’s IP address, locating a hidden directory, using brute force techniques to gain access, connecting via WebDAV, uploading a PHP reverse shell, and ultimately finding and capturing the flag within the hidden directory.
 
 ## Execution
-
-### Step 1: Discover the IP address of the Linux server 
+<details>
+<summary> <b> Step 1: Discover the IP address of the Linux server  </b> </summary>
 
 Identify the IP address of Kali VM with command: `Ipconfig`
 
@@ -29,7 +29,7 @@ Nmap discovered 256 IP addresses with 4 hosts up. On VM IP address: 192.168.1.10
 Using `dirb` , as a web content scanner, we can locate hidden and existing directory web objects. Another method since port 80 is open, we can open a web browser and put in the ip address: `192.168.1.105`
 
 ![image](https://github.com/user-attachments/assets/01a8df7e-f428-414a-b2d4-63b28c15d778)
-
+</details>	
 
 ### Step 2: Locate the hidden directory on the server
 
