@@ -7,7 +7,7 @@
 
 In this project, I will take on the role of both a Red Team penetration tester and a Blue Team SOC analyst. 
 
-As the Red Team, I’ll target a vulnerable virtual machine in my lab environment, attempting to exploit its weaknesses, escalate privileges, and ultimately gain root access. Once I’ve completed the attack phase, I’ll switch to the Blue Team perspective—using Kibana to analyze log data captured during my engagement. I’ll extract key indicators of compromise, create visualizations, and build a detailed report outlining my attack path and findings. Finally, I’ll recommend mitigation strategies based on the tactics and techniques I used to breach the system.
+As the Red Team, I’ll target a vulnerable virtual machine in my lab environment, attempting to exploit its weaknesses, escalate privileges, and ultimately gain root access. Once I’ve completed the attack phase, I’ll switch to the Blue Team perspective; Using Kibana to analyze log data captured during my engagement. I’ll extract key indicators of compromise, create visualizations, and build a detailed report outlining my attack path and findings. Finally, I’ll recommend mitigation strategies based on the tactics and techniques I used to breach the system.
 
 ### Intro
 
