@@ -1,1 +1,15 @@
+3. Create a new Ubuntu VM in our virtual network with the following configurations:
+- The VM must have a public IP address.
+- The VM must be added to the new region in which we created our new vNet. We want to make sure we select our new vNEt and allow a new basic Security Group to be created for this VM.
+- The VM must use the same SSH keys as our WebserverVM's. This should be the ssh keys that were created on the Ansible container that's running on our jump box.
+- After creating the new VM in Azure, verify that it works as expected by connecting via SSH from the Ansible container on our jump box VM.
 
+   - ```bash
+        ssh sysadmin@<jump-box-provisioner>
+     ``` 
+   - ```bash
+        sudo docker container list -a
+     ``` 
+   - ```bash
+        sudo docker start goofy_wright && sudo docker attach goofy_wright
+     ``` 
