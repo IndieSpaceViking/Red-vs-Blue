@@ -31,8 +31,10 @@ Using `dirb` , as a web content scanner, we can locate hidden and existing direc
 ![image](https://github.com/user-attachments/assets/01a8df7e-f428-414a-b2d4-63b28c15d778)
 </details>	
 
-### Step 2: Locate the hidden directory on the server
 
+<details>
+<summary> <b> Step 2: Locate the hidden directory on the server </b> </summary>
+  
 Navigating through the directory comes to a folder called secret_folder which asks for authentication in order to access. Reading the authentication method reads "For Asthon's eyes only."
 
 ![image](https://github.com/user-attachments/assets/51787feb-6bca-448e-b546-761b7d831c08)
@@ -40,3 +42,27 @@ Navigating through the directory comes to a folder called secret_folder which as
 ![image](https://github.com/user-attachments/assets/80ccab65-f8a5-485b-94b4-e619354d67b4)
 
 ![image](https://github.com/user-attachments/assets/20e7518b-911e-4cf2-a8d4-511d1bb27bc1)
+</details>	
+
+
+<details>
+<summary> <b> Step 3: Brute force the password for the hidden directory </b> </summary>
+
+We will find Asthon's username and password by brute force against the hidden directory by using Hydra.
+
+- Using Ashton's name, run the Hydra attack against the directory:
+  - Using the command: `hydra -l ashton -P rockyou.txt -s 80 -f -vV 192.168.1.105 http-get /customer_folders/secret_folder`
+-Once brute force attack is finished, you will find the username is `ashton` and the password is `leopoldo`.
+
+![image](https://github.com/user-attachments/assets/31c2e658-7192-4c03-9341-3deddbd12b76)
+
+- After logging in with the credentials, navigate on the browser to the secret folder and will go to connect_to_corp_server page indicating a personal note left by Asthon of how to connect to the companies webdavserver with Ryan's account information.
+
+![image](https://github.com/user-attachments/assets/529ffb7d-8450-47a3-abd3-b6db925ba152)
+
+- Break the hashed password with Crack station website or John the Ripper.
+  - For John the Ripper, use the command: `john  --format=raw-md5 ryan_hash`
+
+![image](https://github.com/user-attachments/assets/8d1a043a-70cb-4eae-badb-a4d85c050c07)
+
+</details>
