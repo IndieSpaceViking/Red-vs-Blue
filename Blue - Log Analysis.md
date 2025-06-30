@@ -7,18 +7,21 @@ We will be investigating the incident using Kibana to analyze the logs that took
 
 Identify the traffic between your machine and the web machine:
 
-Run the command on the Discover page of Kibana: source.ip: 192.168.1.90 and destination.ip: 192.168.1.105 which indicates the source IP of Kali machine and your destination machine (your web server).
-Run url.path: /company_folders/secret_folder/
+- Run the command on the Discover page of Kibana: `source.ip: 192.168.1.90 and destination.ip: 192.168.1.105` which indicates the source IP of Kali machine and your destination machine (your web server).
+- Run `url.path: /company_folders/secret_folder/`
 
+![image](https://github.com/user-attachments/assets/989e6634-e1f6-4358-9bbb-b68bb8f9bdf8)
 
-The following responses: 401, 301, 200, 207, 303 returned shown in the images below:
+- The following responses: `401, 301, 200, 207, 303` returned shown in the images below:
+
+![image](https://github.com/user-attachments/assets/0dff360c-8584-4454-acf2-8c69145befa6)
 
 Identifying the Port scan:
 
-The port scan (192.168.1.90) occurred on July 23, 2022 @ 15:00.
-There were a total of 133,288 packets sent from 192.168.1.90.
-There was an increased activity spike in the network traffic that helps identify the port scans.
-We can see a spike in the Connections over time [Packetbeat Flows] ECS and Errors vs successful transactions [Packetbeat] ECS.
+- The port scan (192.168.1.90) occurred on July 23, 2022 @ 15:00.
+- There were a total of 133,288 packets sent from 192.168.1.90.
+- There was an increased activity spike in the network traffic that helps identify the port scans.
+- We can see a spike in the Connections over time [Packetbeat Flows] ECS and Errors vs successful transactions [Packetbeat] ECS.
 
 </details>	
 
@@ -27,28 +30,38 @@ We can see a spike in the Connections over time [Packetbeat Flows] ECS and Error
 
 
 <details>
-<summary> 2. Find the Request for the Hidden Directory </b> </summary>
-
+<summary> 2. Find the Request for the Hidden Directory </b> </summary> 
 Looking at the interaction between the attacking machine with the webserver.
 
-Request occurred on July 23, 2022 @ ~15:00. The secret_folder was requested 16,213 times, as shown in the Top 10 HTTP requests [Packetbeat] ECS panel.
-Files within the secret_folder was obtained when logging into Ashton's account which then lead us to connect_to_corp_server and contained sensitive information.
-Inside the secret folder revealed sensitive information on Ryan’s account password and instructions on how to navigate into Ryan’s webDAV server.
+- Request occurred on July 23, 2022 @ ~15:00. The secret_folder was requested 16,213 times, as shown in the Top 10 HTTP requests [Packetbeat] ECS panel.
+- Files within the secret_folder was obtained when logging into Ashton's account which then lead us to connect_to_corp_server and contained sensitive information.
+- Inside the secret folder revealed sensitive information on Ryan’s account password and instructions on how to navigate into Ryan’s webDAV server.
+
+![image](https://github.com/user-attachments/assets/504f6491-61cf-46ac-a206-40c880a90b00)
+
+![image](https://github.com/user-attachments/assets/5d41bed7-010f-4f61-8432-875e27bdf02b)
+
+![image](https://github.com/user-attachments/assets/e43044b2-9d5a-4770-ac58-7a5fedcfe4c4)
 
 Mitigation:
-What kind of alarm would you set to detect this behavior in the future?
+<blockquote>
+  <strong>What kind of alarm would you set to detect this behavior in the future?</strong><br>
+</blockquote>
 
-Set an alarm alert that goes off for any machine that attempts to access the directory or file.
-Set an alarm that sets off when a user from non-whitelisted IP address tries to access directory.
-Setting a threshold of 2-3 attempts every 20 minutes that would trigger an alert to be sent to SOC analyst.
-Identify at least one way to harden the vulnerable machine that would mitigate this attack.
+- Set an alarm alert that goes off for any machine that attempts to access the directory or file.
+- Set an alarm that sets off when a user from non-whitelisted IP address tries to access directory.
+- Setting a threshold of 2-3 attempts every 20 minutes that would trigger an alert to be sent to SOC analyst.
 
-Directory file should be removed from the server.
-Store files in the central database and not directly in web server file systems and definite own resource names used to access the files.
-Whitelisting permitted name and/or characters of file names or paths from user inputs. Blacklisting characters to filter out ../ and strings not recommended.
-Mitigating vulnerability on web server side, ensure using up-to-date web server software. Running minimum privileges and only have access to directories that the website or application actually needs.
-Detecting these vulnerabilities by regularly scan your websites and web applications.
-Encrypt data file that are confidential.  
+<blockquote>
+  <strong>Identify at least one way to harden the vulnerable machine that would mitigate this attack.</strong><br>
+</blockquote>
+
+- Directory file should be removed from the server.
+- Store files in the central database and not directly in web server file systems and definite own resource names used to access the files.
+- Whitelisting permitted name and/or characters of file names or paths from user inputs. Blacklisting characters to filter out ../ and strings not recommended.
+- Mitigating vulnerability on web server side, ensure using up-to-date web server software. Running minimum privileges and only have access to directories that the website or application actually needs.
+- Detecting these vulnerabilities by regularly scan your websites and web applications.
+- Encrypt data file that are confidential.  
 </details>	
 
 
@@ -103,8 +116,8 @@ Mitigation:
 
 <details>
 <summary> 4. Find the WebDav Connection </b> </summary>
-  
 - In the Top 10 HTTP requests [Packetbeat] ECS panel, 98 requests were made in the webDAV directory and 52 requests were made in the webDAV/shell.php.
+  
 - Within the webDAV directory, two files found named passwd.dav and shell.php.
 
 ![image](https://github.com/user-attachments/assets/9b32c65b-3da2-457e-ade7-d9095ffc418c)
