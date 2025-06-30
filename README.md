@@ -13,7 +13,7 @@ As the Red Team, I’ll target a vulnerable virtual machine in my lab environmen
 
 Read through the Offensive, Defense, and Network Analysis files to see the work, process and finding that leads up to the final presentation.
 
-- [Monitoring](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/NetworkAnalysis.md): 
+- [Monitoring](https://github.com/IndieSpaceViking/Red-vs-Blue/blob/main/Monitoring.md): 
   
 - [Offensive - RED](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/Offensive.md): 
 
