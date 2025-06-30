@@ -65,4 +65,25 @@ We will find Asthon's username and password by brute force against the hidden di
 
 ![image](https://github.com/user-attachments/assets/8d1a043a-70cb-4eae-badb-a4d85c050c07)
 
+- Using https://crackstation.net to crack the hash, paste the password hash and fill out the CAPTCHA; and click on Crack Hashes:
+
+![image](https://github.com/user-attachments/assets/de67aefd-391b-46f4-9807-a84d11296264)
+
+- Breaking the hashed password reviewed Ryan's password is `linux4u`.
+</details>
+
+
+<details>
+<summary> <b> Step 4: Connect to the server via WebDAV </b> </summary>
+
+Connect to the VM's WebDAV directory by following the instructions on the secret_folder.
+
+- Open the `File System` on the desktop.
+- Click on `Browse Network`.
+- In the URL bar, type: `dav:192.168.1.105/webdav`
+- Enter the credentials:
+  - Username: `ryan`
+  - Password: `linux4u`
+
+![image](https://github.com/user-attachments/assets/a50dc533-6e0c-44a8-b72e-e7b1bfd63142)
 </details>
