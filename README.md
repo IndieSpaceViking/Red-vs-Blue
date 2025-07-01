@@ -11,7 +11,7 @@ As the Red Team, I’ll target a vulnerable virtual machine in my lab environmen
 
 ### Intro
 
-Read through the Offensive, Defense, and Network Analysis files to see the work, process and finding that leads up to the final presentation.
+Read through the Offensive, Defense, Monitoring Network Analysis files to see the work, process and finding.
 
 - [Monitoring](https://github.com/IndieSpaceViking/Red-vs-Blue/blob/main/Monitoring.md): 
   
