@@ -17,6 +17,6 @@ Read through the Offensive, Defense, and Network Analysis files to see the work,
   
 - [Offensive - RED](https://github.com/IndieSpaceViking/Red-vs-Blue/blob/main/Red%20-%20Security%20Assessment.md):
 
-- [Defense - BLUE](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/Defensive.md): 
+- [Defense - BLUE](https://github.com/IndieSpaceViking/Red-vs-Blue/blob/main/Blue%20-%20Log%20Analysis.md): 
 
 #### View the Google slide of full findings [Here]()
