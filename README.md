@@ -19,4 +19,4 @@ Read through the Offensive, Defense, and Network Analysis files to see the work,
 
 - [Defense - BLUE](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/Defensive.md): 
 
-#### View the Google slide of full findings [Here](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/files/9066131/CyberSec.Pro.Final.Presentation.pdf)
+#### View the Google slide of full findings [Here]()
